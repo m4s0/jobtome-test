@@ -12,6 +12,10 @@ up:
 down:
 	cd docker && docker-compose down
 
+.PHONY: logs
+logs:
+	cd docker && docker-compose logs -f
+
 .PHONY: bash
 bash:
 	cd docker && docker-compose exec php-fpm bash
