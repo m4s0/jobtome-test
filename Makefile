@@ -25,8 +25,15 @@ install:
 	cd docker && docker-compose run --rm php-fpm sh -c 'composer install --no-interaction --no-suggest --ansi'
 
 .PHONY: test
-test:
+test: phpunit behat
+
+.PHONY: phpunit
+phpunit:
 	cd docker && docker-compose run --rm php-fpm sh -c 'vendor/bin/phpunit --testdox --exclude-group=none --colors=always'
+
+.PHONY: behat
+behat:
+	cd docker && docker-compose run --rm php-fpm sh -c 'vendor/bin/behat'
 
 .PHONY: cs
 cs:

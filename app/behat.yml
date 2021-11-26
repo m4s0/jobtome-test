@@ -1,0 +1,23 @@
+default:
+    suites:
+        default:
+            contexts:
+                - App\Tests\Behat\AppContext
+                - Behatch\Context\RestContext
+                - Behatch\Context\JsonContext
+                - Behat\MinkExtension\Context\MinkContext
+
+    extensions:
+        FriendsOfBehat\SymfonyExtension:
+            bootstrap: ~
+            kernel:
+                class: ~
+                path: ~
+                environment: 'test'
+                debug: true
+        Behatch\Extension: ~
+        Behat\MinkExtension:
+            base_url: "http://localhost/"
+            sessions:
+                default:
+                    symfony: ~
