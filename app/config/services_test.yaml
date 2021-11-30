@@ -1,3 +1,7 @@
+parameters:
+    short_code_length: 6
+    base_name: 'http://domain.test/'
+
 services:
     _defaults:
         autowire: false
@@ -5,3 +9,6 @@ services:
 
     App\Tests\Behat\AppContext:
         public: true
+        arguments:
+            $session: '@behat.mink.default_session'
+            $entityManager: '@doctrine.orm.entity_manager'

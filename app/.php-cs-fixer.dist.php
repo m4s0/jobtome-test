@@ -3,7 +3,8 @@
 $finder = (new PhpCsFixer\Finder())
     ->in([
         __DIR__ . '/src',
-        __DIR__ . '/tests'
+        __DIR__ . '/tests',
+        __DIR__ . '/features'
     ])
 ;
 
@@ -12,7 +13,6 @@ $config
     ->setLineEnding("\r\n")
     ->setRiskyAllowed(true)
     ->setRules([
-        '@Symfony' => true,
         'array_syntax' => ['syntax' => 'short'],
         'declare_strict_types' => true,
         'no_unused_imports' => true,

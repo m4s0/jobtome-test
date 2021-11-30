@@ -7,24 +7,38 @@
         "php": ">=8.0",
         "ext-ctype": "*",
         "ext-iconv": "*",
+        "ext-uopz": "*",
+        "composer/package-versions-deprecated": "1.11.99.4",
+        "doctrine/doctrine-bundle": "^2.5",
+        "doctrine/doctrine-migrations-bundle": "^3.2",
+        "doctrine/orm": "^2.10",
+        "nelmio/api-doc-bundle": "^4.6",
+        "pugx/shortid-php": "^0.7.0",
+        "symfony/asset": "5.3.*",
         "symfony/console": "5.3.*",
         "symfony/dotenv": "5.3.*",
         "symfony/flex": "^1.3.1",
         "symfony/framework-bundle": "5.3.*",
+        "symfony/proxy-manager-bridge": "5.3.*",
         "symfony/runtime": "5.3.*",
-        "symfony/yaml": "5.3.*"
+        "symfony/twig-bundle": "5.3.*",
+        "symfony/yaml": "5.3.*",
+        "twig/extra-bundle": "^2.12|^3.0",
+        "twig/twig": "^2.12|^3.0"
     },
     "require-dev": {
         "behat/behat": "^3.10",
-        "behatch/contexts": "^3.3",
         "coduo/php-matcher": "^6.0",
         "friends-of-behat/mink": "^1.9",
         "friends-of-behat/mink-browserkit-driver": "^1.5",
         "friends-of-behat/mink-extension": "^2.5",
         "friends-of-behat/symfony-extension": "^2.2",
         "friendsofphp/php-cs-fixer": "^3.2",
+        "phpspec/prophecy-phpunit": "^2.0",
         "phpstan/phpstan": "^0.12.99",
         "phpunit/phpunit": "^9.5",
+        "slope-it/clock-mock": "^0.2.0",
+        "soyuka/contexts": "^3.3",
         "symfony/browser-kit": "5.3.*",
         "symfony/css-selector": "5.3.*",
         "symfony/phpunit-bridge": "^5.3"
@@ -62,7 +76,25 @@
         ],
         "post-update-cmd": [
             "@auto-scripts"
-        ]
+        ],
+        "db:init": [
+            "@db:drop",
+            "@db:create",
+            "@schema:create",
+            "@schema:update"
+        ],
+        "db:create": "bin/console doctrine:database:create",
+        "schema:create": "bin/console doctrine:schema:create",
+        "db:drop": "bin/console doctrine:database:drop --if-exists --force",
+        "schema:update": "bin/console doctrine:schema:update --force",
+        "cs": "vendor/bin/php-cs-fixer fix --no-interaction --diff --verbose",
+        "stan": "vendor/bin/phpstan analyse --memory-limit=-1",
+        "test": [
+            "@test:unit",
+            "@test:behat"
+        ],
+        "test:unit": "vendor/bin/phpunit --testdox --exclude-group=none --colors=always",
+        "test:behat": "vendor/bin/behat"
     },
     "conflict": {
         "symfony/symfony": "*"

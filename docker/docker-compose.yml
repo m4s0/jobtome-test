@@ -8,14 +8,15 @@ services:
       context: ./db
     environment:
       - MYSQL_DATABASE=${DATABASE_NAME}
+      - MYSQL_TEST_DATABASE=${DATABASE_TEST_NAME}
       - MYSQL_USER=${DATABASE_USER}
       - MYSQL_PASSWORD=${DATABASE_PASSWORD}
       - MYSQL_ROOT_PASSWORD=${DATABASE_ROOT_PASSWORD}
     ports:
       - "3306:3306"
     volumes:
-      - db_data:/var/lib/mysql
-      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - jobtome_db_data:/var/lib/mysql
+      - ./db/init:/docker-entrypoint-initdb.d
 
   php-fpm:
     container_name: php-fpm
@@ -48,4 +49,4 @@ services:
       - "443:443"
 
 volumes:
-  db_data:
+  jobtome_db_data:

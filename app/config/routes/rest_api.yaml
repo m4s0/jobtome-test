@@ -1,0 +1,29 @@
+create_short_url:
+    path: /api/short-url
+    defaults:
+        _controller: App\Controller\UrlShortenerController::create
+    methods: [POST]
+
+read_short_url:
+    path: /api/short-url/{shortCode}
+    defaults:
+        _controller: App\Controller\UrlShortenerController::read
+    methods: [GET]
+
+list_short_url:
+    path: /api/short-url
+    defaults:
+        _controller: App\Controller\UrlShortenerController::list
+    methods: [GET]
+
+delete_short_url:
+    path: /api/short-url/{shortCode}
+    defaults:
+        _controller: App\Controller\UrlShortenerController::delete
+    methods: [DELETE]
+
+short_url_visits:
+    path: /api/short-url/{shortCode}/visits
+    defaults:
+        _controller: App\Controller\UrlShortenerController::visits
+    methods: [GET]

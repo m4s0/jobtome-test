@@ -11,9 +11,6 @@
     "behat/transliterator": {
         "version": "v1.3.0"
     },
-    "behatch/contexts": {
-        "version": "3.3.0"
-    },
     "coduo/php-matcher": {
         "version": "6.0.7"
     },
@@ -38,11 +35,73 @@
             "config/routes/annotations.yaml"
         ]
     },
+    "doctrine/cache": {
+        "version": "2.1.1"
+    },
+    "doctrine/collections": {
+        "version": "1.6.8"
+    },
+    "doctrine/common": {
+        "version": "3.2.0"
+    },
+    "doctrine/dbal": {
+        "version": "3.1.4"
+    },
+    "doctrine/deprecations": {
+        "version": "v0.5.3"
+    },
+    "doctrine/doctrine-bundle": {
+        "version": "2.5",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "2.4",
+            "ref": "032f52ed50a27762b78ca6a2aaf432958c473553"
+        },
+        "files": [
+            "config/packages/doctrine.yaml",
+            "config/packages/prod/doctrine.yaml",
+            "config/packages/test/doctrine.yaml",
+            "src/Entity/.gitignore",
+            "src/Repository/.gitignore"
+        ]
+    },
+    "doctrine/doctrine-migrations-bundle": {
+        "version": "3.2",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "3.1",
+            "ref": "ee609429c9ee23e22d6fa5728211768f51ed2818"
+        },
+        "files": [
+            "config/packages/doctrine_migrations.yaml",
+            "migrations/.gitignore"
+        ]
+    },
+    "doctrine/event-manager": {
+        "version": "1.1.1"
+    },
+    "doctrine/inflector": {
+        "version": "2.0.4"
+    },
     "doctrine/instantiator": {
         "version": "1.4.0"
     },
     "doctrine/lexer": {
         "version": "1.2.1"
+    },
+    "doctrine/migrations": {
+        "version": "3.3.2"
+    },
+    "doctrine/orm": {
+        "version": "2.10.2"
+    },
+    "doctrine/persistence": {
+        "version": "2.2.3"
+    },
+    "doctrine/sql-formatter": {
+        "version": "1.1.2"
     },
     "friends-of-behat/mink": {
         "version": "v1.9.0"
@@ -60,13 +119,7 @@
             "branch": "master",
             "version": "2.0",
             "ref": "1e012e04f573524ca83795cd19df9ea690adb604"
-        },
-        "files": [
-            "behat.yml.dist",
-            "config/services_test.yaml",
-            "features/demo.feature",
-            "tests/Behat/DemoContext.php"
-        ]
+        }
     },
     "friendsofphp/php-cs-fixer": {
         "version": "3.3",
@@ -83,6 +136,9 @@
     "friendsofphp/proxy-manager-lts": {
         "version": "v1.0.5"
     },
+    "ircmaxell/security-lib": {
+        "version": "v1.1.0"
+    },
     "justinrainbow/json-schema": {
         "version": "5.2.11"
     },
@@ -92,8 +148,30 @@
     "myclabs/deep-copy": {
         "version": "1.10.2"
     },
+    "nelmio/api-doc-bundle": {
+        "version": "4.6",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "3.0",
+            "ref": "c8e0c38e1a280ab9e37587a8fa32b251d5bc1c94"
+        },
+        "files": [
+            "config/packages/nelmio_api_doc.yaml",
+            "config/routes/nelmio_api_doc.yaml"
+        ]
+    },
     "nikic/php-parser": {
         "version": "v4.13.1"
+    },
+    "paragonie/random-lib": {
+        "version": "v2.0.1"
+    },
+    "paragonie/random_compat": {
+        "version": "v2.0.20"
+    },
+    "paragonie/sodium_compat": {
+        "version": "v1.17.0"
     },
     "phar-io/manifest": {
         "version": "2.0.3"
@@ -115,6 +193,9 @@
     },
     "phpspec/prophecy": {
         "version": "1.14.0"
+    },
+    "phpspec/prophecy-phpunit": {
+        "version": "v2.0.1"
     },
     "phpstan/phpstan": {
         "version": "0.12.99"
@@ -159,6 +240,9 @@
     },
     "psr/log": {
         "version": "2.0.0"
+    },
+    "pugx/shortid-php": {
+        "version": "v0.7.0"
     },
     "sebastian/cli-parser": {
         "version": "1.0.1"
@@ -208,6 +292,15 @@
     "sebastian/version": {
         "version": "3.0.2"
     },
+    "slope-it/clock-mock": {
+        "version": "0.2.0"
+    },
+    "soyuka/contexts": {
+        "version": "3.3.3"
+    },
+    "symfony/asset": {
+        "version": "v5.3.11"
+    },
     "symfony/browser-kit": {
         "version": "v5.3.4"
     },
@@ -240,6 +333,9 @@
     },
     "symfony/deprecation-contracts": {
         "version": "v2.5.0"
+    },
+    "symfony/doctrine-bridge": {
+        "version": "v5.3.11"
     },
     "symfony/dom-crawler": {
         "version": "v5.3.7"
@@ -391,6 +487,22 @@
     "symfony/translation-contracts": {
         "version": "v2.5.0"
     },
+    "symfony/twig-bridge": {
+        "version": "v5.3.11"
+    },
+    "symfony/twig-bundle": {
+        "version": "5.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "5.3",
+            "ref": "3dd530739a4284e3272274c128dbb7a8140a66f1"
+        },
+        "files": [
+            "config/packages/twig.yaml",
+            "templates/base.html.twig"
+        ]
+    },
     "symfony/var-dumper": {
         "version": "v5.3.11"
     },
@@ -403,7 +515,16 @@
     "theseer/tokenizer": {
         "version": "1.2.1"
     },
+    "twig/extra-bundle": {
+        "version": "v3.3.4"
+    },
+    "twig/twig": {
+        "version": "v3.3.4"
+    },
     "webmozart/assert": {
         "version": "1.10.0"
+    },
+    "zircote/swagger-php": {
+        "version": "3.3.2"
     }
 }

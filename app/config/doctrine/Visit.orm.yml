@@ -1,0 +1,52 @@
+App\Entity\Visit:
+    type: entity
+    table: visit
+    indexes:
+        IDX_short_url_id:
+            columns:
+                - short_url_id
+    id:
+        id:
+            type: bigint
+            nullable: false
+            options:
+                unsigned: true
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        date:
+            type: datetime_immutable
+            nullable: false
+        referer:
+            type: string
+            nullable: true
+            length: 1024
+            options:
+                fixed: false
+        ip:
+            type: string
+            nullable: true
+            length: 256
+            options:
+                fixed: false
+            column: ip
+        userAgent:
+            type: string
+            nullable: true
+            length: 512
+            options:
+                fixed: false
+            column: user_agent
+    manyToOne:
+        shortUrl:
+            targetEntity: ShortUrl
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: short_url
+            inversedBy: visit
+            joinColumns:
+                short_url_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

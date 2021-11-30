@@ -24,21 +24,34 @@ bash:
 install:
 	cd docker && docker-compose run --rm php-fpm sh -c 'composer install --no-interaction --no-suggest --ansi'
 
-.PHONY: test
-test: phpunit behat
+.PHONY: init
+init:
+	cd docker && docker-compose run --rm php-fpm sh -c 'composer db:init'
 
-.PHONY: phpunit
-phpunit:
-	cd docker && docker-compose run --rm php-fpm sh -c 'vendor/bin/phpunit --testdox --exclude-group=none --colors=always'
+.PHONY: drop
+drop:
+	cd docker && docker-compose run --rm php-fpm sh -c 'composer db:drop'
+
+.PHONY: schema-update
+schema-update:
+	cd docker && docker-compose run --rm php-fpm sh -c 'composer schema:update'
+
+.PHONY: test
+test:
+	cd docker && docker-compose run --rm php-fpm sh -c 'composer test'
+
+.PHONY: unit
+unit:
+	cd docker && docker-compose run --rm php-fpm sh -c 'composer test:unit'
 
 .PHONY: behat
 behat:
-	cd docker && docker-compose run --rm php-fpm sh -c 'vendor/bin/behat'
+	cd docker && docker-compose run --rm php-fpm sh -c 'composer test:behat'
 
 .PHONY: cs
 cs:
-	cd docker && docker-compose run --rm php-fpm sh -c 'vendor/bin/php-cs-fixer fix --no-interaction --diff --verbose'
+	cd docker && docker-compose run --rm php-fpm sh -c 'composer cs'
 
 .PHONY: stan
 stan:
-	cd docker && docker-compose run --rm php-fpm sh -c 'vendor/bin/phpstan analyse --memory-limit=-1'
+	cd docker && docker-compose run --rm php-fpm sh -c 'composer stan'

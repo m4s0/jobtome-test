@@ -1,0 +1,5 @@
+redirect:
+    path: /{shortCode}
+    defaults:
+        _controller: App\Controller\RedirectController::try
+    methods: [GET]

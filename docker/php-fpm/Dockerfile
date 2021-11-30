@@ -39,6 +39,13 @@ COPY --from=composer /usr/bin/composer /usr/bin/composer
 RUN wget https://get.symfony.com/cli/installer -O - | bash
 RUN mv /root/.symfony/bin/symfony /usr/local/bin/symfony
 
+RUN apk update && apk add alpine-conf
+RUN setup-timezone -z Europe/Rome
+COPY timezone.ini /usr/local/etc/php/conf.d/
+
+RUN pecl install uopz
+RUN docker-php-ext-enable uopz
+
 USER app
 WORKDIR /var/app
 

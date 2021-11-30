@@ -1,0 +1,56 @@
+App\Entity\ShortUrl:
+    type: entity
+    table: short_url
+    uniqueConstraints:
+        unique_short_code_plus_domain:
+            columns:
+                - short_code
+    id:
+        id:
+            type: bigint
+            nullable: false
+            options:
+                unsigned: true
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        originalUrl:
+            type: string
+            nullable: false
+            length: 2048
+            options:
+                fixed: false
+            column: original_url
+        shortCode:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            column: short_code
+        createdAt:
+            type: datetime_immutable
+            nullable: false
+            column: date_created
+        validSince:
+            type: datetime_immutable
+            nullable: true
+            column: valid_since
+        validUntil:
+            type: datetime_immutable
+            nullable: true
+            column: valid_until
+        maxVisits:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: max_visits
+    oneToMany:
+        visits:
+            targetEntity: App\Entity\Visit
+            mappedBy: shortUrl
+            orphanRemoval: true
+            fetch: EXTRA_LAZY
+    lifecycleCallbacks: {  }
