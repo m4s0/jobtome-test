@@ -1,6 +1,6 @@
 # Application
 
-Application runs with PHP 8 and MySQL 8
+Application runs with PHP 8.1 and MySQL 8
 
 API Documentation http://127.0.0.1/api/doc
 

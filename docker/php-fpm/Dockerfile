@@ -1,4 +1,4 @@
-FROM php:8-fpm-alpine
+FROM php:8.1-fpm-alpine
 
 RUN apk --update --no-cache add bash \
    && apk add wget \
