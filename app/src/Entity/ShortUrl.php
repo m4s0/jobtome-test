@@ -23,6 +23,9 @@ class ShortUrl
 
     private ?int $maxVisits;
 
+    /**
+     * @var Collection<int, Visit>
+     */
     private Collection $visits;
 
     public function __construct(
@@ -94,6 +97,9 @@ class ShortUrl
         return $this->maxVisits;
     }
 
+    /**
+     * @return Collection<int, Visit>
+     */
     public function getVisits(): Collection
     {
         return $this->visits;

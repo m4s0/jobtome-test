@@ -8,6 +8,9 @@ use App\Entity\ShortUrl;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
+/**
+ * @extends ServiceEntityRepository<ShortUrl>
+ */
 class ShortUrlRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)

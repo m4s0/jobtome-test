@@ -24,7 +24,7 @@ class ShortenerTest extends TestCase
     }
 
     /** @test */
-    public function it_will_raise_an_exception_if_the_url_exists()
+    public function it_will_raise_an_exception_if_the_url_exists(): void
     {
         $shortUrlRepository = $this->prophesize(ShortUrlRepository::class);
         $generateRandomShortCode = $this->prophesize(GenerateRandomShortCode::class);
